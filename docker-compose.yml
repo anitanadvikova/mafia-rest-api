@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  api:
+    build: .
+    ports:
+    - "8080:8080"
+  postgres:
+    image: postgres:12.2
+    container_name: dburl
+    volumes:
+      - /var/lib/postgresql
+      - .:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+  minio:
+    image: 'docker.io/bitnami/minio:2020-debian-10'
+    ports:
+      - '9000:9000'
+    environment:
+      - MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE
+      - MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    volumes:
+      - 'minio_data:/data'
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+    - '5672:5672'
+    - '15672:15672'
+volumes:
+  minio_data:
+    driver: local

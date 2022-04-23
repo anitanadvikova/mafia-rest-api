@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:database/changelog.xml
+    enabled: true
+  security:
+    user-role: USER
+    enabled: true
+server:
+  port: 8080
+minio:
+  access:
+    bucket-name: anita-bucket
+    access-key: AKIAIOSFODNN7EXAMPLE
+    secret-key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY

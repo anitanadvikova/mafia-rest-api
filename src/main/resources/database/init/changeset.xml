@@ -1,0 +1,11 @@
+<databaseChangeLog logicalFilePath="path-independent"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="init__db" author="anita" context="docker">
+        <validCheckSum>7:b76605951e19984ed951e05f57e45da0</validCheckSum>
+        <comment>initial changeset</comment>
+        <sqlFile path="init.sql" encoding="utf8" relativeToChangelogFile="true" stripComments="true" splitStatements="false" />
+    </changeSet>
+</databaseChangeLog>
